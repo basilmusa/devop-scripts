@@ -59,6 +59,7 @@ systemctl stop postgresql
 
 rsync -aHAX ${POSTGRES_DATA_DIR}/* ${NEW_DATA_DIR}
 chown -R postgres:postgres ${NEW_DATA_DIR}
+chmod 0700 ${NEW_DATA_DIR}
 
 # Change to the new data directory by replacing configuration value
 ESCAPED_FIND=$(echo ${ACTUAL_POSTGRES_DATA_DIR} | sed -e 's/[]\/$*.^[]/\\&/g');
